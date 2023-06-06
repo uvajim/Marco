@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46039CB92A2EB914003C5B3D /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46039CB82A2EB914003C5B3D /* SwiftUIView.swift */; };
 		4641D11C2A2E7B0E006ACB0F /* MarcoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D11B2A2E7B0E006ACB0F /* MarcoApp.swift */; };
 		4641D11E2A2E7B0E006ACB0F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D11D2A2E7B0E006ACB0F /* Persistence.swift */; };
 		4641D1212A2E7B0E006ACB0F /* Marco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4641D11F2A2E7B0E006ACB0F /* Marco.xcdatamodeld */; };
@@ -16,6 +17,12 @@
 		4641D1332A2E7B0F006ACB0F /* MarcoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D1322A2E7B0F006ACB0F /* MarcoTests.swift */; };
 		4641D13D2A2E7B0F006ACB0F /* MarcoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D13C2A2E7B0F006ACB0F /* MarcoUITests.swift */; };
 		4641D13F2A2E7B0F006ACB0F /* MarcoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D13E2A2E7B0F006ACB0F /* MarcoUITestsLaunchTests.swift */; };
+		4641D14F2A2E7B76006ACB0F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D14E2A2E7B76006ACB0F /* HomeView.swift */; };
+		4641D1512A2E7BB8006ACB0F /* ItineraryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D1502A2E7BB8006ACB0F /* ItineraryItem.swift */; };
+		4641D1532A2E7BE9006ACB0F /* CreateNewItinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D1522A2E7BE9006ACB0F /* CreateNewItinerary.swift */; };
+		4641D1552A2E7D82006ACB0F /* ItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D1542A2E7D82006ACB0F /* ItineraryView.swift */; };
+		4641D1572A2E7DCC006ACB0F /* DestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D1562A2E7DCC006ACB0F /* DestinationView.swift */; };
+		4641D1592A2E7E16006ACB0F /* todoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D1582A2E7E16006ACB0F /* todoItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		46039CB82A2EB914003C5B3D /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		4641D1182A2E7B0E006ACB0F /* Marco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4641D11B2A2E7B0E006ACB0F /* MarcoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcoApp.swift; sourceTree = "<group>"; };
 		4641D11D2A2E7B0E006ACB0F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -49,6 +57,12 @@
 		4641D1382A2E7B0F006ACB0F /* MarcoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarcoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4641D13C2A2E7B0F006ACB0F /* MarcoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcoUITests.swift; sourceTree = "<group>"; };
 		4641D13E2A2E7B0F006ACB0F /* MarcoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4641D14E2A2E7B76006ACB0F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4641D1502A2E7BB8006ACB0F /* ItineraryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryItem.swift; sourceTree = "<group>"; };
+		4641D1522A2E7BE9006ACB0F /* CreateNewItinerary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewItinerary.swift; sourceTree = "<group>"; };
+		4641D1542A2E7D82006ACB0F /* ItineraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryView.swift; sourceTree = "<group>"; };
+		4641D1562A2E7DCC006ACB0F /* DestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
+		4641D1582A2E7E16006ACB0F /* todoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +113,9 @@
 		4641D11A2A2E7B0E006ACB0F /* Marco */ = {
 			isa = PBXGroup;
 			children = (
+				4641D14D2A2E7B51006ACB0F /* Controllers */,
+				4641D14C2A2E7B46006ACB0F /* Views */,
+				4641D14B2A2E7B3C006ACB0F /* Models */,
 				4641D11B2A2E7B0E006ACB0F /* MarcoApp.swift */,
 				4641D11D2A2E7B0E006ACB0F /* Persistence.swift */,
 				4641D1222A2E7B0E006ACB0F /* ContentView.swift */,
@@ -133,6 +150,34 @@
 				4641D13E2A2E7B0F006ACB0F /* MarcoUITestsLaunchTests.swift */,
 			);
 			path = MarcoUITests;
+			sourceTree = "<group>";
+		};
+		4641D14B2A2E7B3C006ACB0F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4641D14C2A2E7B46006ACB0F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4641D14E2A2E7B76006ACB0F /* HomeView.swift */,
+				4641D1502A2E7BB8006ACB0F /* ItineraryItem.swift */,
+				4641D1522A2E7BE9006ACB0F /* CreateNewItinerary.swift */,
+				4641D1542A2E7D82006ACB0F /* ItineraryView.swift */,
+				4641D1562A2E7DCC006ACB0F /* DestinationView.swift */,
+				4641D1582A2E7E16006ACB0F /* todoItem.swift */,
+				46039CB82A2EB914003C5B3D /* SwiftUIView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4641D14D2A2E7B51006ACB0F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,9 +310,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4641D1592A2E7E16006ACB0F /* todoItem.swift in Sources */,
+				4641D1572A2E7DCC006ACB0F /* DestinationView.swift in Sources */,
+				46039CB92A2EB914003C5B3D /* SwiftUIView.swift in Sources */,
+				4641D1552A2E7D82006ACB0F /* ItineraryView.swift in Sources */,
+				4641D1512A2E7BB8006ACB0F /* ItineraryItem.swift in Sources */,
 				4641D1212A2E7B0E006ACB0F /* Marco.xcdatamodeld in Sources */,
 				4641D11C2A2E7B0E006ACB0F /* MarcoApp.swift in Sources */,
 				4641D1232A2E7B0E006ACB0F /* ContentView.swift in Sources */,
+				4641D14F2A2E7B76006ACB0F /* HomeView.swift in Sources */,
+				4641D1532A2E7BE9006ACB0F /* CreateNewItinerary.swift in Sources */,
 				4641D11E2A2E7B0E006ACB0F /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,10 +497,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jinmingliang.Marco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -483,10 +537,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jinmingliang.Marco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
