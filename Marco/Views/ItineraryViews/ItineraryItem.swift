@@ -16,10 +16,6 @@ let pictures = [
 
 
 struct ItineraryItem: View {
-    
-    
- 
-    
     var itinerary: String;
     
     init(itinerary: String) {

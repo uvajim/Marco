@@ -13,8 +13,7 @@ struct MarcoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            HomeView().environment(\.managedObjectContext, persistenceController.container.viewContext) 
         }
     }
 }

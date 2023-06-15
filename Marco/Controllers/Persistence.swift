@@ -29,6 +29,7 @@ struct PersistenceController {
     }()
 
     let container: NSPersistentContainer
+    
 
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "Marco")
@@ -54,3 +55,4 @@ struct PersistenceController {
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
 }
+

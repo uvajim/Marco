@@ -1,15 +1,18 @@
 import SwiftUI
 
-struct SwiftView: View {
+struct SectionTitleView: View {
     
     var title: String;
-    var action: () -> Any;
+    var action: () -> Void;
+    var icon: String = "plus.circle.fill"
     
     
     var body: some View {
+        
+        
         VStack(alignment: .leading) {
             HStack {
-                Text("Section Title")
+                Text("\(title)")
                     .font(.title)
                     .bold()
 
@@ -19,7 +22,7 @@ struct SwiftView: View {
                     // Your add action goes here
                     action()
                 }) {
-                    Image(systemName: "plus.circle.fill")
+                    Image(systemName: icon)
                         .font(.title)
                 }
             }
@@ -32,7 +35,7 @@ struct SwiftView_Previews: PreviewProvider {
     static var previews: some View {
         
         
-        SwiftView(title: "Hotels", action: {})
+        SectionTitleView(title: "Hotels", action: {})
     }
 }
 

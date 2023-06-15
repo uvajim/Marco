@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46039CB92A2EB914003C5B3D /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46039CB82A2EB914003C5B3D /* SwiftUIView.swift */; };
+		46039CB92A2EB914003C5B3D /* SectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46039CB82A2EB914003C5B3D /* SectionTitleView.swift */; };
+		46039CBD2A2EC0B9003C5B3D /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46039CBC2A2EC0B9003C5B3D /* ToDoView.swift */; };
+		46373A352A310CB200A64E38 /* CalenderFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46373A342A310CB200A64E38 /* CalenderFinder.swift */; };
+		46373A372A31D78A00A64E38 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46373A362A31D78A00A64E38 /* MapController.swift */; };
 		4641D11C2A2E7B0E006ACB0F /* MarcoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D11B2A2E7B0E006ACB0F /* MarcoApp.swift */; };
 		4641D11E2A2E7B0E006ACB0F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D11D2A2E7B0E006ACB0F /* Persistence.swift */; };
 		4641D1212A2E7B0E006ACB0F /* Marco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4641D11F2A2E7B0E006ACB0F /* Marco.xcdatamodeld */; };
@@ -22,7 +25,15 @@
 		4641D1532A2E7BE9006ACB0F /* CreateNewItinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D1522A2E7BE9006ACB0F /* CreateNewItinerary.swift */; };
 		4641D1552A2E7D82006ACB0F /* ItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D1542A2E7D82006ACB0F /* ItineraryView.swift */; };
 		4641D1572A2E7DCC006ACB0F /* DestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D1562A2E7DCC006ACB0F /* DestinationView.swift */; };
-		4641D1592A2E7E16006ACB0F /* todoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4641D1582A2E7E16006ACB0F /* todoItem.swift */; };
+		464E3CBA2A374D7E00708412 /* SetBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E3CB92A374D7E00708412 /* SetBudgetView.swift */; };
+		467CD4CC2A328DDA007C2E8E /* AddNewDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CD4CB2A328DDA007C2E8E /* AddNewDestinationView.swift */; };
+		46B947272A38A6AA0000C6C3 /* EditDatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B947262A38A6AA0000C6C3 /* EditDatesView.swift */; };
+		46B947292A39D8950000C6C3 /* ArrivalDepartureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B947282A39D8950000C6C3 /* ArrivalDepartureView.swift */; };
+		46B9472B2A39E0310000C6C3 /* CollapsibleSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B9472A2A39E0310000C6C3 /* CollapsibleSectionView.swift */; };
+		46BAFF552A2FE9E800276641 /* BudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BAFF542A2FE9E800276641 /* BudgetView.swift */; };
+		46BAFF572A2FFD5800276641 /* NewToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BAFF562A2FFD5800276641 /* NewToDoItem.swift */; };
+		46BAFF592A30CE6D00276641 /* DetailedBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BAFF582A30CE6D00276641 /* DetailedBudgetView.swift */; };
+		46BAFF5B2A30DBAB00276641 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BAFF5A2A30DBAB00276641 /* CalenderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +54,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		46039CB82A2EB914003C5B3D /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		46039CB82A2EB914003C5B3D /* SectionTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleView.swift; sourceTree = "<group>"; };
+		46039CBC2A2EC0B9003C5B3D /* ToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
+		46373A342A310CB200A64E38 /* CalenderFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderFinder.swift; sourceTree = "<group>"; };
+		46373A362A31D78A00A64E38 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		4641D1182A2E7B0E006ACB0F /* Marco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4641D11B2A2E7B0E006ACB0F /* MarcoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcoApp.swift; sourceTree = "<group>"; };
 		4641D11D2A2E7B0E006ACB0F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -62,7 +76,15 @@
 		4641D1522A2E7BE9006ACB0F /* CreateNewItinerary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewItinerary.swift; sourceTree = "<group>"; };
 		4641D1542A2E7D82006ACB0F /* ItineraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryView.swift; sourceTree = "<group>"; };
 		4641D1562A2E7DCC006ACB0F /* DestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
-		4641D1582A2E7E16006ACB0F /* todoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoItem.swift; sourceTree = "<group>"; };
+		464E3CB92A374D7E00708412 /* SetBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBudgetView.swift; sourceTree = "<group>"; };
+		467CD4CB2A328DDA007C2E8E /* AddNewDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewDestinationView.swift; sourceTree = "<group>"; };
+		46B947262A38A6AA0000C6C3 /* EditDatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDatesView.swift; sourceTree = "<group>"; };
+		46B947282A39D8950000C6C3 /* ArrivalDepartureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalDepartureView.swift; sourceTree = "<group>"; };
+		46B9472A2A39E0310000C6C3 /* CollapsibleSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleSectionView.swift; sourceTree = "<group>"; };
+		46BAFF542A2FE9E800276641 /* BudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetView.swift; sourceTree = "<group>"; };
+		46BAFF562A2FFD5800276641 /* NewToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewToDoItem.swift; sourceTree = "<group>"; };
+		46BAFF582A30CE6D00276641 /* DetailedBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedBudgetView.swift; sourceTree = "<group>"; };
+		46BAFF5A2A30DBAB00276641 /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,15 +135,13 @@
 		4641D11A2A2E7B0E006ACB0F /* Marco */ = {
 			isa = PBXGroup;
 			children = (
+				4641D11B2A2E7B0E006ACB0F /* MarcoApp.swift */,
 				4641D14D2A2E7B51006ACB0F /* Controllers */,
 				4641D14C2A2E7B46006ACB0F /* Views */,
 				4641D14B2A2E7B3C006ACB0F /* Models */,
-				4641D11B2A2E7B0E006ACB0F /* MarcoApp.swift */,
-				4641D11D2A2E7B0E006ACB0F /* Persistence.swift */,
 				4641D1222A2E7B0E006ACB0F /* ContentView.swift */,
 				4641D1242A2E7B0F006ACB0F /* Assets.xcassets */,
 				4641D1262A2E7B0F006ACB0F /* Marco.entitlements */,
-				4641D11F2A2E7B0E006ACB0F /* Marco.xcdatamodeld */,
 				4641D1272A2E7B0F006ACB0F /* Preview Content */,
 			);
 			path = Marco;
@@ -155,6 +175,7 @@
 		4641D14B2A2E7B3C006ACB0F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4641D11F2A2E7B0E006ACB0F /* Marco.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -163,12 +184,10 @@
 			isa = PBXGroup;
 			children = (
 				4641D14E2A2E7B76006ACB0F /* HomeView.swift */,
-				4641D1502A2E7BB8006ACB0F /* ItineraryItem.swift */,
-				4641D1522A2E7BE9006ACB0F /* CreateNewItinerary.swift */,
-				4641D1542A2E7D82006ACB0F /* ItineraryView.swift */,
-				4641D1562A2E7DCC006ACB0F /* DestinationView.swift */,
-				4641D1582A2E7E16006ACB0F /* todoItem.swift */,
-				46039CB82A2EB914003C5B3D /* SwiftUIView.swift */,
+				46039CB82A2EB914003C5B3D /* SectionTitleView.swift */,
+				46B9472A2A39E0310000C6C3 /* CollapsibleSectionView.swift */,
+				467CD4C82A327371007C2E8E /* DestinationViews */,
+				467CD4C72A32734D007C2E8E /* ItineraryViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,8 +195,38 @@
 		4641D14D2A2E7B51006ACB0F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4641D11D2A2E7B0E006ACB0F /* Persistence.swift */,
+				46373A342A310CB200A64E38 /* CalenderFinder.swift */,
+				46373A362A31D78A00A64E38 /* MapController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		467CD4C72A32734D007C2E8E /* ItineraryViews */ = {
+			isa = PBXGroup;
+			children = (
+				46BAFF5A2A30DBAB00276641 /* CalenderView.swift */,
+				46BAFF582A30CE6D00276641 /* DetailedBudgetView.swift */,
+				46BAFF542A2FE9E800276641 /* BudgetView.swift */,
+				4641D1542A2E7D82006ACB0F /* ItineraryView.swift */,
+				4641D1522A2E7BE9006ACB0F /* CreateNewItinerary.swift */,
+				4641D1502A2E7BB8006ACB0F /* ItineraryItem.swift */,
+				464E3CB92A374D7E00708412 /* SetBudgetView.swift */,
+				46B947262A38A6AA0000C6C3 /* EditDatesView.swift */,
+			);
+			path = ItineraryViews;
+			sourceTree = "<group>";
+		};
+		467CD4C82A327371007C2E8E /* DestinationViews */ = {
+			isa = PBXGroup;
+			children = (
+				46BAFF562A2FFD5800276641 /* NewToDoItem.swift */,
+				46039CBC2A2EC0B9003C5B3D /* ToDoView.swift */,
+				4641D1562A2E7DCC006ACB0F /* DestinationView.swift */,
+				467CD4CB2A328DDA007C2E8E /* AddNewDestinationView.swift */,
+				46B947282A39D8950000C6C3 /* ArrivalDepartureView.swift */,
+			);
+			path = DestinationViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,16 +359,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4641D1592A2E7E16006ACB0F /* todoItem.swift in Sources */,
+				46BAFF592A30CE6D00276641 /* DetailedBudgetView.swift in Sources */,
+				46BAFF552A2FE9E800276641 /* BudgetView.swift in Sources */,
+				46BAFF572A2FFD5800276641 /* NewToDoItem.swift in Sources */,
 				4641D1572A2E7DCC006ACB0F /* DestinationView.swift in Sources */,
-				46039CB92A2EB914003C5B3D /* SwiftUIView.swift in Sources */,
+				46039CB92A2EB914003C5B3D /* SectionTitleView.swift in Sources */,
+				46BAFF5B2A30DBAB00276641 /* CalenderView.swift in Sources */,
 				4641D1552A2E7D82006ACB0F /* ItineraryView.swift in Sources */,
+				464E3CBA2A374D7E00708412 /* SetBudgetView.swift in Sources */,
 				4641D1512A2E7BB8006ACB0F /* ItineraryItem.swift in Sources */,
 				4641D1212A2E7B0E006ACB0F /* Marco.xcdatamodeld in Sources */,
 				4641D11C2A2E7B0E006ACB0F /* MarcoApp.swift in Sources */,
+				46373A352A310CB200A64E38 /* CalenderFinder.swift in Sources */,
 				4641D1232A2E7B0E006ACB0F /* ContentView.swift in Sources */,
+				46B947292A39D8950000C6C3 /* ArrivalDepartureView.swift in Sources */,
 				4641D14F2A2E7B76006ACB0F /* HomeView.swift in Sources */,
+				467CD4CC2A328DDA007C2E8E /* AddNewDestinationView.swift in Sources */,
 				4641D1532A2E7BE9006ACB0F /* CreateNewItinerary.swift in Sources */,
+				46B947272A38A6AA0000C6C3 /* EditDatesView.swift in Sources */,
+				46039CBD2A2EC0B9003C5B3D /* ToDoView.swift in Sources */,
+				46B9472B2A39E0310000C6C3 /* CollapsibleSectionView.swift in Sources */,
+				46373A372A31D78A00A64E38 /* MapController.swift in Sources */,
 				4641D11E2A2E7B0E006ACB0F /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

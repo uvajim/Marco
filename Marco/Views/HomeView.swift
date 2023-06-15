@@ -4,27 +4,50 @@
 //
 //  Created by Jinming Liang on 6/5/23.
 //
+//  This 
+//
 
 import SwiftUI
 
 struct HomeView: View {
+
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Itinerary.startDate, ascending: true)],
+        animation: .default)
+    private var items: FetchedResults<Itinerary>
     
-    let testIinerary = ["Tokyo Trip", "Patagonia Trip", "Marrakesh Getaway"]
     
-    @Environment (\.managedObjectContext) var managedObjectContext
+    @Environment (\.managedObjectContext) var viewContext
     
     @State var createNewItinerary = false
+    
+    
+    private func deleteItems(at offsets: IndexSet) {
+           for index in offsets {
+               let item = items[index]
+               viewContext.delete(item)
+           }
+           
+           do {
+               try viewContext.save()
+           } catch {
+               // handle the Core Data error
+           }
+       }
     
     var body: some View {
         NavigationStack{
             List{
-                ForEach(testIinerary, id: \.self){ itinerary in
+                ForEach(items){ item in
                     NavigationLink{
-                        ContentView()
+                        ItineraryView(currItinerary: item).environment(\.managedObjectContext, self.viewContext)
                     } label: {
-                        ItineraryItem(itinerary: itinerary)
+                        ItineraryItem(itinerary: item.tripName!)
                     }
-                }.navigationTitle("Itineraries")
+                }
+                .onDelete(perform: deleteItems)
+                .navigationTitle("Itineraries")
+                
             }
             .listStyle(.plain)
             .toolbar{
@@ -35,7 +58,7 @@ struct HomeView: View {
                 })
             }
         }.fullScreenCover(isPresented: $createNewItinerary, onDismiss: {}, content: {CreateNewItinerary(createNewItinerary: $createNewItinerary)
-                .environment(\.managedObjectContext, self.managedObjectContext)
+                .environment(\.managedObjectContext, self.viewContext)
         } )
     }
 }
