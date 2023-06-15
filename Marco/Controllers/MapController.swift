@@ -26,8 +26,27 @@ class MapViewModel: ObservableObject {
         let center = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         self.region = MKCoordinateRegion(center: center, span: span)
-        print("finished init")
-        print("isLoading?: \(isLoading)")
+    }
+    
+    
+    func updateCoordinates(latitude: Double, longitude: Double){
+        isLoading = true
+        Task {
+            do {
+                    // Ensure UI updates are performed on the main thread
+                    DispatchQueue.main.async {
+                        let center = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+                        self.region = MKCoordinateRegion(center: center, span: span)
+                        self.isLoading = false
+                    }
+            } catch {
+                print("Geocoding error: \(error)")
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                }
+            }
+        }
     }
     
     func updateRegion(name: String) {

@@ -48,9 +48,10 @@ struct ItineraryView: View {
                 Section(header: SectionTitleView(title: "Destinations", action: {
                     self.showAddNewDestinationView.toggle()
                 }),  content: {
-                    ForEach(destinations, id: \.self){ destination in
-                        NavigationLink(destination: DestinationView(destination: destination).environment(\.managedObjectContext, viewContext) ) {
-                            Text(destination.destinationName ?? "")
+                    ForEach(0...destinations.count - 1, id:\.self){ i in
+                        NavigationLink(destination: DestinationView(destinations: destinations, currLocation: i).environment(\.managedObjectContext, viewContext) ) {
+                            Text(destinations[i].destinationName ?? "")
+                            
                         }
                     }.onDelete(perform: deleteDestination)
                 })

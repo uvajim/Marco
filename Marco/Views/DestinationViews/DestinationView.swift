@@ -9,22 +9,20 @@ struct DestinationView: View {
         }
     
     
-    @ObservedObject var viewModel: MapViewModel
+    @ObservedObject var mapModel: MapViewModel
     @Environment(\.managedObjectContext) private var viewContext
     
     
-    @State var destination: Destination;
+    @State var destinations: [Destination];
     
     
-    @State var currLocation = 1
+    @State var currLocation: Int
     
-    init(destination: Destination, currLocation: Int = 1) {
+    init(destinations: [Destination], currLocation: Int) {
         
-        self.destination = destination
+        self.destinations = destinations
         self.currLocation = currLocation
-        print(destination.latitude)
-        print(destination.longitude)
-        self.viewModel = MapViewModel(latitude: destination.latitude, longitude: destination.longitude)
+        self.mapModel = MapViewModel(latitude: destinations[currLocation].latitude, longitude: destinations[currLocation].longitude)
         
     }
     
@@ -36,20 +34,20 @@ struct DestinationView: View {
         
         VStack {
             VStack {
-                Text(destination.destinationName ?? "")
+                Text(destinations[currLocation].destinationName ?? "")
                     .font(.largeTitle).bold()
-                Text("\(destination.startDate ?? Date())")
+                Text("\(destinations[currLocation].startDate ?? Date())")
                     .font(.headline)
             }
             .padding(.bottom)
             
             ScrollView {
                 ZStack {
-                    Map(coordinateRegion: $viewModel.region)
+                    Map(coordinateRegion: $mapModel.region)
                         .frame(height: 300)
                         .cornerRadius(20)
                     
-                    if viewModel.isLoading {
+                    if mapModel.isLoading {
                         ProgressView()
                             .progressViewStyle(CircularProgressViewStyle(tint: .blue))
                             .scaleEffect(1.5, anchor: .center)
@@ -58,7 +56,7 @@ struct DestinationView: View {
                 .padding(.bottom)
                 
                 CollapsibleSectionView(title: "Travel Details", action: {}, content: {
-                    ArrivalDepartureView(currDestination: self.destination)
+                    ArrivalDepartureView(currDestination: self.destinations[currLocation])
                 })
                 
                 CollapsibleSectionView(title: "Hotel", action: {
@@ -68,7 +66,7 @@ struct DestinationView: View {
                 })
                 
                 
-                ToDoView(currDestination: destination).environment(\.managedObjectContext, self.viewContext)
+                ToDoView(currDestination: destinations[currLocation]).environment(\.managedObjectContext, self.viewContext)
                 
                 
                 
@@ -76,8 +74,12 @@ struct DestinationView: View {
             
             HStack {
                 Button(action: {
-                    self.currLocation = currLocation - 1
-                    //self.name = deestinations[currLocation]
+                    if currLocation != 0{
+                        self.currLocation = currLocation - 1
+                        self.mapModel.updateCoordinates(latitude: destinations[currLocation].latitude, longitude: destinations[currLocation].longitude)
+                    }
+                    
+                    
                     //viewModel.updateRegion(name: self.name)
                 }) {
                     VStack {
@@ -90,7 +92,11 @@ struct DestinationView: View {
                 Spacer()
                 
                 Button(action: {
-                    self.currLocation = currLocation + 1
+                    if self.currLocation != destinations.count - 1{
+                        self.currLocation = currLocation + 1
+                        self.mapModel.updateCoordinates(latitude: destinations[currLocation].latitude, longitude: destinations[currLocation].longitude)
+                    }
+                    
                     //self.name = deestinations[currLocation]
                     //viewModel.updateRegion(name: self.name)
                 }) {

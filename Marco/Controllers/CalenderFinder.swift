@@ -42,7 +42,7 @@ class MyEventDatabase: NSObject, UICalendarViewDelegate{
     }
     
     func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
-            
+        
         var i = 0;
         
         
@@ -50,7 +50,7 @@ class MyEventDatabase: NSObject, UICalendarViewDelegate{
             // Declares the variables from the currDestination
             let currStartDate = destinations[i].startDate
             let currDuration = destinations[i].durationOfStay
-                
+            
             // Calculates the end dates
             let calendar = Calendar.current
             let endDate = calendar.date(byAdding: .day, value: Int(currDuration), to: currStartDate!)
@@ -58,10 +58,9 @@ class MyEventDatabase: NSObject, UICalendarViewDelegate{
             // Declares the random color for the current destination
             
             if let date = calendar.date(from: dateComponents) {
-                print("Checking.... \(date)")
-                    
+                
                 var currDate = currStartDate!
-                    
+                
                 while currDate <= endDate! {
                     if calendar.isDate(currDate, inSameDayAs: date) {
                         return .default(color: destinationColors[i], size: .large)
@@ -69,13 +68,12 @@ class MyEventDatabase: NSObject, UICalendarViewDelegate{
                     currDate = calendar.date(byAdding: .day, value: 1, to: currDate)!
                 }
             }
-                
+            
             i += 1
-            print("curr i value: \(i)")
         }
-                
+        
         return nil
     }
-
-
+    
+    
 }

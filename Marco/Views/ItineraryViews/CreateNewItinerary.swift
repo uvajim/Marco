@@ -93,12 +93,6 @@ struct CreateNewItinerary: View {
                     
                     // dismiss the add itinerary view
                     self.createNewItinerary.toggle()
-
-                    print("Name: \(tripName)")
-                    print("Starting Point: \(startingPoint)")
-                    print("Start Date: \(startDate)")
-                    print("End Date: \(endDate)")
-                    print("Budget")
                 }, label: {
                     HStack {
                         Spacer()
