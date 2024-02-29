@@ -49,6 +49,8 @@ struct SetBudgetView: View {
         currItinerary.lodgingSpend = Int64(lodgingSpend) ?? currItinerary.lodgingSpend
         currItinerary.miscSpend = Int64(miscSpend) ?? currItinerary.miscSpend
         
+        currItinerary.budget = currItinerary.transportationSpend + currItinerary.foodSpend + currItinerary.entertainmentSpend + currItinerary.lodgingSpend + currItinerary.miscSpend
+        
         do{
             try viewContext.save()
         }
@@ -100,7 +102,10 @@ struct SetBudgetView: View {
 
 struct SetBudgetView_Previews: PreviewProvider {
     static var previews: some View {
-        let testItinerary = Itinerary()
-        SetBudgetView(changeBudget: .constant(true), currItinerary: testItinerary)
+        let context = PersistenceController.preview.container.viewContext
+        let testItinerary = Itinerary(context: context)
+        return SetBudgetView(changeBudget: .constant(true), currItinerary: testItinerary)
+            .environment(\.managedObjectContext, context)
     }
 }
+

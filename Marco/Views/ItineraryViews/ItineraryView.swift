@@ -30,13 +30,15 @@ struct ItineraryView: View {
     
     
     @State var showAddNewDestinationView = false;
+    @State var showSetBudgetView = false;
     @State var editDates = false;
+    @State private var destinations: [Destination] = []
     
     
     
     var body: some View {
         
-        let destinations = (currItinerary.destinations as? Set<Destination>)?.sorted(by: { ($0.startDate ?? Date()) < ($1.startDate ?? Date()) }) ?? []
+        
 
         let mostRecentDestionation = destinations.last
         
@@ -48,27 +50,29 @@ struct ItineraryView: View {
                 Section(header: SectionTitleView(title: "Destinations", action: {
                     self.showAddNewDestinationView.toggle()
                 }),  content: {
-                    ForEach(0...destinations.count - 1, id:\.self){ i in
+                    ForEach(0..<max(0, destinations.count), id:\.self){ i in
                         NavigationLink(destination: DestinationView(destinations: destinations, currLocation: i).environment(\.managedObjectContext, viewContext) ) {
                             Text(destinations[i].destinationName ?? "")
                             
                         }
-                    }.onDelete(perform: deleteDestination)
+                    }
+                    .onMove(perform: moveItem)
+                    .onDelete(perform: deleteDestination)
                 })
                 
                 //Dates desction
-                Section(header: SectionTitleView(title: "Dates", action: {
-                    self.editDates.toggle()
-                }, icon: "pencil.circle.fill"), content: {
-                    NavigationLink(destination: CalendarRepresentableView(year: self.year!, month: self.month!, day: self.day!, destinations: destinations)) {
-                        Text("\(DateInterval(start: currItinerary.startDate!, end: currItinerary.endDate!))")
-                    }
-                })
+//                Section(header: SectionTitleView(title: "Dates", action: {
+//                    self.editDates.toggle()
+//                }, icon: "pencil.circle.fill"), content: {
+//                    NavigationLink(destination: CalendarRepresentableView(year: self.year!, month: self.month!, day: self.day!, destinations: destinations)) {
+//                        Text("\(DateInterval(start: currItinerary.startDate!, end: currItinerary.endDate!))")
+//                    }
+//                })
                 
                 //Budget Section
                 Section(header: SectionTitleView(title: "Budget", action: {
-                    
-                }, icon: "pencil"), content: {
+                    self.showSetBudgetView.toggle()
+                }, icon: "pencil.circle.fill"), content: {
                     if currItinerary.budget > 0{
                         NavigationLink(destination: DetailedBudgetView(currItinerary: self.currItinerary)) {
                             BudgetView(currItinerary: currItinerary
@@ -82,17 +86,33 @@ struct ItineraryView: View {
                     
                 })
                 
-            }.fullScreenCover(isPresented: $showAddNewDestinationView, content: {AddNewDestinationView(prevDestination: destinations.last, showAddNewDestinationView: $showAddNewDestinationView, currItinerary: self.currItinerary)})
+            }.fullScreenCover(isPresented: $showAddNewDestinationView, content: {AddNewDestinationView(prevDestination: destinations.last, showAddNewDestinationView: $showAddNewDestinationView, destinations: $destinations, currItinerary: self.currItinerary)})
                 .fullScreenCover(isPresented: $editDates, content: {
                     EditDatesView(currItinerary: self.currItinerary, newStartDate: self.currItinerary.startDate!, newEndDate: self.currItinerary.endDate!, showUpdateDateView: $editDates)
                 })
+                .fullScreenCover(isPresented: $showSetBudgetView, content: {
+                    SetBudgetView(changeBudget: $showSetBudgetView, currItinerary: self.currItinerary)
+                })
+                
+        }.onAppear{
+            updateDestinations()
         }
         
     }
     
+    func moveItem(from source: IndexSet, to destination: Int) {
+        destinations.move(fromOffsets: source, toOffset: destination)
+        }
+    
+    private func updateDestinations() {
+            destinations = (currItinerary.destinations as? Set<Destination>)?.sorted(by: {
+                ($0.startDate ?? Date()) < ($1.startDate ?? Date())
+            }) ?? []
+        }
+    
     private func deleteDestination(at offsets: IndexSet) {
         offsets.forEach { index in
-            let sortedDestinations = (currItinerary.destinations as? Set<Destination>)?.sorted(by: { ($0.destinationName ?? "") < ($1.destinationName ?? "") }) ??
+            let sortedDestinations = (currItinerary.destinations as? Set<Destination>)?.sorted(by: { ($0.startDate ?? Date()) < ($1.startDate ?? Date()) }) ??
             []
             if index < sortedDestinations.count {
                 let destination = sortedDestinations[index]
@@ -115,7 +135,12 @@ struct ItineraryView: View {
 
 struct ItineraryView_Previews: PreviewProvider {
     static var previews: some View {
-        Text("Placeholder") // ItineraryView() with a sample instance
-        //ItineraryView(currItinerary: Itinerary())
+        
+        let context = PersistenceController.preview.container.viewContext
+        
+        let currItinerary = Itinerary(context: context)
+        
+        return ItineraryView(currItinerary: currItinerary) // Pass a valid instance of Itinerary
     }
 }
+

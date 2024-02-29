@@ -93,8 +93,12 @@ struct EditDatesView: View {
 }
 
 struct EditDatesView_Previews: PreviewProvider {
-    let testItinerary = Itinerary()
     static var previews: some View {
-        Text("b")
+        let context = PersistenceController.preview.container.viewContext
+        let testItinerary = Itinerary(context: context)
+        
+        return EditDatesView(currItinerary: testItinerary, newStartDate: Date(), newEndDate: Date(), showUpdateDateView: .constant(true))
+            .environment(\.managedObjectContext, context)
     }
 }
+

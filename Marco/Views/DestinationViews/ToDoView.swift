@@ -14,7 +14,6 @@ struct todoItem: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     
-    
     var body: some View {
         HStack{
             Button(action: {
@@ -58,19 +57,22 @@ struct ToDoView: View {
     @State var createToDo = false
     @State var newToDoName = ""
     
-    @FocusState var newToDo: Field?
+    
+    @FocusState private var isInputFocused: Bool
     
     var body: some View {
         
         let todoItems = Array((currDestination.todo as? Set<ChecklistItem>) ?? [])
         
         CollapsibleSectionView(title: "To Do", action: {
-            createToDo.toggle()
+            createToDo = true
+            isInputFocused = true
         }, content: {
             ScrollView{
                 if createToDo{
-                    NewToDoItem(currDestination: currDestination,  createNewToDo: $createToDo).environment(\.managedObjectContext, viewContext)
-                        .focused($newToDo, equals: .newToDo)
+                    NewToDoItem(currDestination: currDestination,  createNewToDo: $createToDo)
+                        .environment(\.managedObjectContext, viewContext)
+                        .focused($isInputFocused)
                         .padding(.top)
                 }
 
@@ -89,8 +91,12 @@ struct ToDoView: View {
 
 struct ToDoView_Previews: PreviewProvider {
     static var previews: some View {
-        let testDestination = Destination()
+        let context = PersistenceController.preview.container.viewContext
         
-        ToDoView(currDestination: testDestination)
+        let testDestination = Destination(context: context)
+        
+        return ToDoView(currDestination: testDestination)
+            .environment(\.managedObjectContext, context)
     }
 }
+

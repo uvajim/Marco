@@ -16,6 +16,7 @@ struct NewToDoItem: View {
     @State var newToDoItem: String = "";
     var currDestination: Destination;
     @Binding var createNewToDo: Bool;
+    @FocusState private var focusedField: Bool
     
     var body: some View {
         HStack{
@@ -23,6 +24,7 @@ struct NewToDoItem: View {
                 .resizable()
                 .frame(width: 24, height: 24)
             TextField("", text: $newToDoItem)
+                .focused($focusedField)
                 
                 .textFieldStyle(.roundedBorder)
             Button(action: {
@@ -60,5 +62,12 @@ struct NewToDoItem: View {
 
 struct NewToDoItem_Previews: PreviewProvider {
     static var previews: some View {
-        Text("WIP")    }
+        let context = PersistenceController.preview.container.viewContext
+        
+        let exampleDestination = Destination(context: context)
+        
+        return NewToDoItem(currDestination: exampleDestination, createNewToDo: .constant(false))
+            .environment(\.managedObjectContext, context)
+    }
 }
+

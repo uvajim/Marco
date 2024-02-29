@@ -115,18 +115,26 @@ struct DestinationView: View {
     }
 }
 
-struct DestinationViewPreview: PreviewProvider {
-    
-    @State static var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 38.7749, longitude: -122.4194),
-        span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
-    )
+struct DestinationView_Previews: PreviewProvider {
     
     static var previews: some View {
-        Map(coordinateRegion: $region)
-            .frame(height: 300)
-            .cornerRadius(20)
+        let context = PersistenceController.preview.container.viewContext
+        
+        // Create a mock destination
+        let testDestination = Destination(context: context)
+        testDestination.destinationName = "Test Destination"
+        testDestination.startDate = Date()
+        testDestination.latitude = 38.7749
+        testDestination.longitude = -122.4194
+        
+        // Create an array of mock destinations
+        let mockDestinations = [testDestination]
+        
+        // Create a preview with the mock data
+        return DestinationView(destinations: mockDestinations, currLocation: 0)
+            .environment(\.managedObjectContext, context)
     }
 }
+
 
 

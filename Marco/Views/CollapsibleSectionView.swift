@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CollapsibleSectionView<Content: View>: View {
     @State private var isExpanded: Bool = true
+    
     var title: String
     var action: () -> Void
     let content: Content
@@ -23,9 +24,16 @@ struct CollapsibleSectionView<Content: View>: View {
                         .font(.title)
                         .bold()
                     Spacer()
+                    Button(action:{
+                        
+                    }){
+                        Image(systemName: "pencil.circle.fill")
+                            .font(.title)
+                    }
                     Button(action: {
                         // Your add action goes here
                         action()
+                        isExpanded.toggle()
                     }) {
                         Image(systemName: "plus.circle.fill")
                             .font(.title)

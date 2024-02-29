@@ -7,11 +7,36 @@
 
 import SwiftUI
 
+import UIKit
+
 let pictures = [
     "Tokyo Trip": "tokyo",
     "Patagonia Trip": "patagonia",
     "Marrakesh Getaway": "marrakesh"
 ]
+
+extension UIImage {
+    static func imageWith(text: String, fontSize: CGFloat = 16, imageSize: CGSize = CGSize(width: 100, height: 100)) -> UIImage? {
+        // Start a graphics context
+        UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
+        
+        // Draw the text
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: fontSize),
+            .foregroundColor: UIColor.black
+        ]
+        
+        let string = NSString(string: text)
+        let rect = CGRect(origin: .zero, size: imageSize)
+        string.draw(in: rect, withAttributes: attributes)
+        
+        // Capture the image and end the context
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+}
 
 
 
@@ -49,12 +74,18 @@ struct ItineraryItem: View {
                     .padding(.leading, 10)
                     .padding(.trailing, 10)
             default:
-                Text("No picture found")
+                if let uiImage = UIImage.imageWith(text: itinerary) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .padding(.leading, 10)
+                        .padding(.trailing, 10)
+                }
             }
             Text(itinerary)
                 .font(.largeTitle)
                 .bold()
-                .foregroundColor(.black)
         }
            
     }

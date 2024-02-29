@@ -21,6 +21,9 @@ struct HomeView: View {
     
     @State var createNewItinerary = false
     
+    @State private var currItinerary = ""
+    @State private var count = 0
+    
     
     private func deleteItems(at offsets: IndexSet) {
            for index in offsets {
@@ -37,29 +40,39 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack{
-            List{
-                ForEach(items){ item in
-                    NavigationLink{
-                        ItineraryView(currItinerary: item).environment(\.managedObjectContext, self.viewContext)
-                    } label: {
-                        ItineraryItem(itinerary: item.tripName!)
-                    }
+            TabView(selection:$currItinerary){
+                ForEach(items){item in
+                        ItineraryView(currItinerary: item).onAppear {
+                            count += 1
+                            print("Count: \(count)")
+                        }
+                    .tag(item.tripName!)
                 }
-                .onDelete(perform: deleteItems)
-                .navigationTitle("Itineraries")
-                
+            }.onAppear {
+                if let firstItem = items.first {
+                    currItinerary = firstItem.tripName!
+                }
             }
-            .listStyle(.plain)
+            .tabViewStyle(.page)
+            .indexViewStyle(.page(backgroundDisplayMode: .always))
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing, content: {
                     Button(action: {
                         createNewItinerary.toggle()
                     }, label: {Image(systemName: "rectangle.and.pencil.and.ellipsis")})
                 })
+                ToolbarItem(placement: .navigationBarLeading, content: {
+                    Text(currItinerary)
+                        .font(.title)
+                        .bold()
+                        .padding(.all)
+                })
             }
         }.fullScreenCover(isPresented: $createNewItinerary, onDismiss: {}, content: {CreateNewItinerary(createNewItinerary: $createNewItinerary)
                 .environment(\.managedObjectContext, self.viewContext)
         } )
+        
+        
     }
 }
 

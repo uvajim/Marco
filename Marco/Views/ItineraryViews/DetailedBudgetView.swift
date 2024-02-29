@@ -22,7 +22,6 @@ struct BudgetLineView: View {
     }
 }
 
-
 struct DetailedBudgetView: View {
     @Environment (\.managedObjectContext) var viewContext
     @ObservedObject var currItinerary: Itinerary
@@ -119,9 +118,18 @@ struct DetailedBudgetView: View {
 
 struct DetailedBudgetView_Previews: PreviewProvider {
     static var previews: some View {
-        let testItinerary = Itinerary()
+        let context = PersistenceController.preview.container.viewContext
+        let testItinerary = Itinerary(context: context)
+        testItinerary.budget = 1000
+        testItinerary.transportationSpend = 250
+        testItinerary.lodgingSpend = 300
+        testItinerary.foodSpend = 200
+        testItinerary.entertainmentSpend = 100
+        testItinerary.miscSpend = 50
         
-        DetailedBudgetView(currItinerary: testItinerary)
+        return DetailedBudgetView(currItinerary: testItinerary)
+            .environment(\.managedObjectContext, context)
     }
 }
+
                                                             

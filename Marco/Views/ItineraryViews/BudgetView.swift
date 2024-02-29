@@ -49,11 +49,13 @@ struct BudgetView: View {
 
 struct BudgetView_Previews: PreviewProvider {
     static var previews: some View {
-
-                let sampleItinerary = Itinerary()
-                sampleItinerary.budget = 5000
-
-                return BudgetView(currItinerary: sampleItinerary)
-                    
+        let context = PersistenceController.preview.container.viewContext
+        
+        let sampleItinerary = Itinerary(context: context)
+        sampleItinerary.budget = 5000
+        
+        return BudgetView(currItinerary: sampleItinerary)
+            .environment(\.managedObjectContext, context)
     }
 }
+

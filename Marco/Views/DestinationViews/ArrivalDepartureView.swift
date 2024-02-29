@@ -93,7 +93,8 @@ struct ArrivalDepartureView: View {
 
 struct ArrivalDepartureView_Previews: PreviewProvider {
     static var previews: some View {
-        var testDestination = Destination()
-        ArrivalDepartureView(currDestination: testDestination)
+        let context = PersistenceController.preview.container.viewContext
+        let testDestination = Destination(context: context)
+        return ArrivalDepartureView(currDestination: testDestination)
     }
 }
